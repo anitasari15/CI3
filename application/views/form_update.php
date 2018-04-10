@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="../../assets/css/style.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +38,7 @@
           <!-- Logo -->
           <div class="navbar-brand">
             <a class="logo" href="home">
-              <img src="assets/img/sklh.jpeg" alt="logo">
+              <img src="../../assets/img/sklh.jpeg" alt="logo">
             </a>
           </div>
           <!-- /Logo -->
@@ -54,9 +54,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
           <div class="container">
           <ul class="main-menu nav navbar-nav navbar-right">
-            <li><a href="home">Home</a></li>
-            <li><a href="home">About</a></li>
-            <li><a href="blog">Blog</a></li>
+            <li><a href="../../home">Home</a></li>
+            <li><a href="../../home">About</a></li>
+            <li><a href="../../blog">Blog</a></li>
             <!-- <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li> -->
           </ul>
@@ -72,7 +72,7 @@
     <div id="home" class="hero-area">
 
       <!-- Backgound Image -->
-      <div class="bg-image bg-parallax overlay" style="background-image:url(assets/img/bg.png)"></div>
+      <div class="bg-image bg-parallax overlay" style="background-image:url(../../assets/img/bg.png)"></div>
       <!-- /Backgound Image -->
 
       <div class="home-wrapper">
@@ -98,100 +98,50 @@
         <!-- row -->
         <div class="row">
 
-          
-            <!-- /feature -->
+          <div class="col-md-6">
+            <div class="section-header">
+              <h2>VISI DAN MISI</h2>
+              <!-- <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p> -->
+            </div>
 
-            <!-- feature -->
-            <div class="feature">
-              <!-- <i class="feature-icon fa fa-users"></i> -->
-    <div class="container text-center">
-      <?php foreach ($artikel as $key): ?>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <table style="margin-bottom: 30px;">
-            <tr>
-              <td>
-                <a href="blog/detail/<?php echo $key->id_blog ?>" style="color: black;">
-                  <img src="img/<?php echo $key->image;?>" alt="Image" width="500" height="400">
-                  <br>
-                  <?php echo $key->judul ?>
-                </a>
-                <br></br>
-                <!-- <button>Edit</button> -->
-                <!-- <button>Delete</button> -->
-                <a href='blog/delete/<?php echo $key->id_blog ?>' class='btn btn-sm btn-danger'>Hapus</a>
-                <a href='blog/edit/<?php echo $key->id_blog ?>' class='btn btn-sm btn-info'>Update</a>
-              </td>
-            </tr>
-          </table>
-        </div>
-      <?php endforeach ?>
-    </div>
 
-    <!-- form untuk menambahkan data -->
-    <div class="container">
-      <?php
-        echo form_open('blog/tambah', array('enctype'=>'multipart/form-data')); 
-       ?>
+      <div class="container">
+      <?php foreach ($single as $key): ?>
+      <?php echo form_open('blog/edit/'.$key->id_blog, array('enctype'=>'multipart/form-data')); ?>
       <table>
         <tr>
-          <td>Judul</td>
+          <td>ID_BLOG</td>
           <td>:</td>
-          <td><input type="text" name="input_judul" value="<?php echo set_value('input_judul'); ?>"></td>
+          <td><input type="text" name="id" readonly value="<?php echo $key->id_blog; ?>"></td>
         </tr>
         <tr>
-          <td>Content</td>
+          <td>JUDUL</td>
           <td>:</td>
-          <td><input type="text" name="input_content" value=""></td>
+          <td><input type="text" name="input_judul" value="<?php echo $key->judul; ?>"></td>
         </tr>
         <tr>
+          <td>KONTEN</td>
+          <td>:</td>
+          <td><input type="text" name="input_content" value="<?php echo $key->content; ?>"></td>
+        </tr>
+        <!-- <tr>
           <td>Tanggal </td>
           <td>:</td>
           <td><input type="text" name="input_tanggal" value=""></td>
-        </tr>
+        </tr> -->
         <tr>
           <td>Gambar</td>
           <td>:</td>
           <td><input type="file" name="input_gambar"></td>
         </tr>
         <tr>
-          <td colspan="3"><input type="submit" name="simpan" value="simpan"></td>
+          <td colspan="3"><input type="submit" name="edit" value="Edit" class="btn btn-primary"></td>
         </tr>
       </table>
+      <?php endforeach ?>
     </div>
-       
-    <!-- Footer -->
-    <footer id="footer" class="section">
 
-      <!-- container -->
-      <div class="container">
-
-        <!-- row -->
-        <div class="row">
-
-          <!-- footer logo -->
-          <div class="col-md-6">
-            <div class="footer-logo">
-              <a class="logo" href="#home">
-                <img src="assets/img/sklh.jpeg" alt="logo">
-              </a>
-            </div>
-          </div>
-          <!-- footer logo -->
-
-          <!-- footer nav -->
-          <div class="col-md-6">
-            <ul class="footer-nav">
-              <li><a href="home">Home</a></li>
-              <li><a href="home">About</a></li>
-            </ul>
-          </div>
-          <!-- /footer nav -->
-
-        </div>
-        <!-- /row -->
-
-        <!-- row -->
-        <div id="bottom-footer" class="row">
+<div id="bottom-footer" class="row">
 
           <!-- social -->
           <div class="col-md-4 col-md-push-8">
@@ -229,9 +179,9 @@
 
 
     <!-- jQuery Plugins -->
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/main.js"></script>
 
   </body>
 </html>

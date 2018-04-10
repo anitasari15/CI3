@@ -17,23 +17,7 @@ class Blog extends CI_Controller {
 		$this->load->view('home_detail', $data);
 	}
 
-	// function tambah(){
-	// 	$this->load->view('artikel');
-	// }
-
-	// function tambah_aksi(){
-	// 	$judul = $this->input->post('judul');
-	// 	$content = $this->input->post('content');
-	// 	$tanggal = $this->input->post('tanggal');
- 
-	// 	$data = array(
-	// 		'judul' => $judul,
-	// 		'content' => $content,
-	// 		'tanggal' => $tanggal
-	// 		);
-	// 	$this->artikel->input_data($data,'Blog');
-	// 	redirect('Blog/index');
-	// }
+	//gungsi untuk insert database
 	public function tambah()
 	{
 		$this->load->model('artikel');
@@ -52,6 +36,28 @@ class Blog extends CI_Controller {
 
 		$this->load->view('home_view', $data);
 	}
+
+	public function delete($id){
+		$this->load->model('artikel');
+		$this->artikel->hapus($id);
+		redirect('blog');
+	}
+
+	public function edit($id){
+		$this->load->model('artikel');
+		// $data['tipe'] = 'Edit';
+		$data['single'] = $this->artikel->get_single($id);
+
+		if($this->input->post('edit')){
+			$upload=$this->artikel->upload();
+			$this->artikel->update($upload,$id);
+			redirect('blog');
+		}
+		
+
+		$this->load->view('form_update',$data);
+	}
+
 
 }
 

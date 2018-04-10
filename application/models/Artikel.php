@@ -18,6 +18,8 @@ class Artikel extends CI_Model {
 	// 	$this->db->insert($table,$data);
 	// }
 
+	//model form upload
+
 	public function upload()
 	{
 		$config['upload_path'] = './img/';
@@ -36,6 +38,8 @@ class Artikel extends CI_Model {
 		}
 	}
 
+	//model untuk insert data
+
 	public function insert($upload)
 	{
 		$data = array(
@@ -48,6 +52,28 @@ class Artikel extends CI_Model {
 
 		$this->db->insert('blog', $data);
 	}
+
+	//model untuk delete
+
+	public function hapus($id){
+		$query = $this->db->query('DELETE from blog WHERE id_blog= '.$id);
+	}
+
+	public function update($upload, $id){
+		if($upload['result']=='success'){
+			$data = array('judul' => $this->input->post('input_judul'),
+							'content' => $this->input->post('input_content'),
+							'image' => $upload['file']['file_name']
+			);
+		} else {
+			$data = array(
+				'judul' => $this->input->post('input_judul'),
+				'content' => $this->input->post('input_content'),
+			);
+		} $this->db->where('id_blog',$id);
+		$this->db->update('blog', $data);
+	}
+
 }
 
 /* End of file blog.php */
