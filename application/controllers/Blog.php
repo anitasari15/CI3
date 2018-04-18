@@ -23,7 +23,20 @@ class Blog extends CI_Controller {
 		$this->load->model('artikel');
 		$data = array();
 
-		if ($this->input->post('simpan')) {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('judul', 'Judul', 'required', array('required' => 'Isi %s , '));
+		$this->form_validation->set_rules('content', 'content', 'required', array('required' => 'Isi %s , '));
+		$this->form_validation->set_rules('kategori', 'kategori', 'required', array('required' => 'Isi %s , '));
+		$this->form_validation->set_rules('penulis', 'penulis', 'required', array('required' => 'Isi %s , '));
+		$this->form_validation->set_rules('sumber', 'sumber', 'required', array('required' => 'Isi %s , '));
+		$this->form_validation->set_rules('tanggal', 'tanggal', 'required', array('required' => 'Isi %s , '));
+
+		if ($this->form_validation->run()==FALSE){
+			$this->load->view('form_tambah');
+		}
+		else
+		{
+			if ($this->input->post('simpan')) {
 			$upload = $this->artikel->upload();
 
 			if ($upload['result'] == 'success') {
@@ -32,9 +45,14 @@ class Blog extends CI_Controller {
 			}else{
 				$data['message'] = $upload['error'];
 			}
+
 		}
 
-		$this->load->view('home_view', $data);
+		$this->load->view('form_tambah', $data);
+			
+		}
+
+		
 	}
 
 	public function delete($id){

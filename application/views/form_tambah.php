@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="../../assets/css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="../assets/css/style.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +38,7 @@
           <!-- Logo -->
           <div class="navbar-brand">
             <a class="logo" href="home">
-              <img src="../../assets/img/sklh.jpeg" alt="logo">
+              <img src="../assets/img/sklh.jpeg" alt="logo">
             </a>
           </div>
           <!-- /Logo -->
@@ -54,9 +54,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
           <div class="container">
           <ul class="main-menu nav navbar-nav navbar-right">
-            <li><a href="../../home">Home</a></li>
-            <li><a href="../../home">About</a></li>
-            <li><a href="../../blog">Blog</a></li>
+            <li><a href="../home">Home</a></li>
+            <li><a href="../home">About</a></li>
+            <li><a href="../blog">Blog</a></li>
             <!-- <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li> -->
           </ul>
@@ -72,7 +72,7 @@
     <div id="home" class="hero-area">
 
       <!-- Backgound Image -->
-      <div class="bg-image bg-parallax overlay" style="background-image:url(../../assets/img/bg.png)"></div>
+      <div class="bg-image bg-parallax overlay" style="background-image:url(../assets/img/bg.png)"></div>
       <!-- /Backgound Image -->
 
       <div class="home-wrapper">
@@ -87,93 +87,57 @@
       </div>
 
     </div>
-    <!-- /Home -->
 
-    <!-- About -->
-    <div class="section">
-
-      <!-- container -->
-      <div class="container">
-
-        <!-- row -->
-        <div class="row">
-
-          <div class="col-md-6">
-            <div class="section-header">
-              <h2>VISI DAN MISI</h2>
-              <!-- <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p> -->
-            </div>
-
-
-      <div class="container">
-      <?php foreach ($single as $key): ?>
-      <?php echo form_open('blog/edit/'.$key->id_blog, array('enctype'=>'multipart/form-data')); ?>
+  <div class="container">
+    <?php echo validation_errors(); ?>
+      <?php
+        echo form_open('blog/tambah', array('enctype'=>'multipart/form-data')); 
+       ?>
       <table>
         <tr>
-          <td>ID_BLOG</td>
+          <td>Judul</td>
           <td>:</td>
-          <td><input type="text" name="id" readonly value="<?php echo $key->id_blog; ?>"></td>
+          <td><input type="text" name="judul" value="<?php echo set_value('judul'); ?>"></td>
         </tr>
         <tr>
-          <td>JUDUL</td>
+          <td>Content</td>
           <td>:</td>
-          <td><input type="text" name="judul" value="<?php echo $key->judul; ?>"></td>
+          <td><input type="text" name="content" value="<?php echo set_value('content') ?>"></td>
         </tr>
         <tr>
-          <td>KONTEN</td>
+          <td>Kategori </td>
           <td>:</td>
-          <td><input type="text" name="content" value="<?php echo $key->content; ?>"></td>
+          <td><input type="text" name="kategori" value="<?php echo set_value('kategori') ?>"></td>
         </tr>
         <tr>
-          <td>KATEGORI </td>
+          <td>Penulis </td>
           <td>:</td>
-          <td><input type="text" name="kategori" value="<?php echo $key->kategori; ?>"></td>
+          <td><input type="text" name="penulis" value="<?php echo set_value('penulis') ?>"></td>
         </tr>
         <tr>
-          <td>PENULIS </td>
+          <td>Sumber </td>
           <td>:</td>
-          <td><input type="text" name="penulis" value="<?php echo $key->penulis; ?>"></td>
+          <td><input type="text" name="sumber" value="<?php echo set_value('sumber') ?>"></td>
         </tr>
         <tr>
-          <td>SUMBER </td>
-          <td>:</td>
-          <td><input type="text" name="sumber" value="<?php echo $key->sumber; ?>"></td>
-        </tr>
         <tr>
-        <!-- <tr>
           <td>Tanggal </td>
           <td>:</td>
-          <td><input type="text" name="input_tanggal" value=""></td>
-        </tr> -->
+          <td><input type="text" name="tanggal" value="<?php echo set_value('tanggal') ?>"></td>
+        </tr>
         <tr>
           <td>Gambar</td>
           <td>:</td>
-          <td><input type="file" name="input_gambar"></td>
+          <td><input type="file" name="input_gambar" value="<?php echo set_value('input_gambar') ?>"></td>
         </tr>
         <tr>
-          <td colspan="3"><input type="submit" name="edit" value="Edit" class="btn btn-primary"></td>
+          <td colspan="3"><input type="submit" name="simpan" value="simpan"></td>
         </tr>
       </table>
-      <?php endforeach ?>
     </div>
 
-<div id="bottom-footer" class="row">
-
-          <!-- social -->
-          <div class="col-md-4 col-md-push-8">
-            <ul class="footer-social">
-<!--               <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li> -->
-            </ul>
-          </div>
-          <!-- /social -->
-
-          <!-- copyright -->
-          <div class="col-md-8 col-md-pull-4">
+</body>
+ <div class="col-md-8 col-md-pull-4">
             <div class="footer-copyright">
               <span>&copy; Copyright 2018. All Rights Reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></span>
             </div>
@@ -195,9 +159,9 @@
 
 
     <!-- jQuery Plugins -->
-    <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../assets/js/main.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
 
   </body>
 </html>

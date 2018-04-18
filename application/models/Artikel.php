@@ -23,7 +23,7 @@ class Artikel extends CI_Model {
 	public function upload()
 	{
 		$config['upload_path'] = './img/';
-		$config['allowed_types'] = 'jpg|png';
+		$config['allowed_types'] = 'jpeg|jpg|png';
 		$config['max_size']  = '2048';
 		$config['remove_space']  = TRUE;
 		
@@ -44,9 +44,12 @@ class Artikel extends CI_Model {
 	{
 		$data = array(
 			'id_blog' => '',
-			'judul' => $this->input->post('input_judul'),
-			'content' => $this->input->post('input_content'),
-			'tanggal' => $this->input->post('input_tanggal'),
+			'judul' => $this->input->post('judul'),
+			'content' => $this->input->post('content'),
+			'kategori' => $this->input->post('kategori'),
+			'penulis' => $this->input->post('penulis'),
+			'sumber' => $this->input->post('sumber'),
+			'tanggal_post' => $this->input->post('tanggal'),
 			'image' => $upload['file']['file_name']
 		);
 
@@ -61,16 +64,17 @@ class Artikel extends CI_Model {
 
 	public function update($upload, $id){
 		if($upload['result']=='success'){
-			$data = array('judul' => $this->input->post('input_judul'),
-							'content' => $this->input->post('input_content'),
+			$data = array('judul' => $this->input->post('judul'),
+							'content' => $this->input->post('content'),
 							'image' => $upload['file']['file_name']
 			);
 		} else {
 			$data = array(
-				'judul' => $this->input->post('input_judul'),
-				'content' => $this->input->post('input_content'),
+				'judul' => $this->input->post('judul'),
+				'content' => $this->input->post('content'),
 			);
-		} $this->db->where('id_blog',$id);
+		} 
+		$this->db->where('id_blog',$id);
 		$this->db->update('blog', $data);
 	}
 
