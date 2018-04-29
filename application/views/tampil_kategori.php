@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="../assets/css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +38,7 @@
           <!-- Logo -->
           <div class="navbar-brand">
             <a class="logo" href="home">
-              <img src="../assets/img/sklh.jpeg" alt="logo">
+              <img src="assets/img/sklh.jpeg" alt="logo">
             </a>
           </div>
           <!-- /Logo -->
@@ -54,9 +54,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
           <div class="container">
           <ul class="main-menu nav navbar-nav navbar-right">
-            <li><a href="../home">Home</a></li>
-            <li><a href="../home">About</a></li>
-            <li><a href="../blog">Blog</a></li>
+            <li><a href="home">Home</a></li>
+            <li><a href="home">About</a></li>
+            <li><a href="blog">Blog</a></li>
             <!-- <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li> -->
           </ul>
@@ -72,7 +72,7 @@
     <div id="home" class="hero-area">
 
       <!-- Backgound Image -->
-      <div class="bg-image bg-parallax overlay" style="background-image:url(../assets/img/bg.png)"></div>
+      <div class="bg-image bg-parallax overlay" style="background-image:url(assets/img/bg.png)"></div>
       <!-- /Backgound Image -->
 
       <div class="home-wrapper">
@@ -85,62 +85,57 @@
           </div>
         </div>
       </div>
+  </div>
+<br></br>
+<br></br>
+  <h1 class="black-text">FORM TAMPIL KATEGORI</h1>
+<br></br>
+<br></br>
+<td><a href='kategori/create' class='btn btn-sm btn-info'>Tambah</a></td>
 
-    </div>
+        <div class="card-content table-responsive">
+            <table class="table">
+                <thead class="text-primary">
+                    <th>Id Kategori</th>
+                    <th>Kategori</th>
+                    <th>Deskripsi</th>
+                    <th>Aksi</th>
+                </thead>
 
-  <div class="container">
-    <?php echo validation_errors(); ?>
-      <?php
-        echo form_open('blog/tambah', array('enctype'=>'multipart/form-data')); 
-       ?>
-      <table>
-        <tr>
-          <td>Judul</td>
-          <td>:</td>
-          <td><input type="text" name="judul" value="<?php echo set_value('judul'); ?>"></td>
-        </tr>
-        <tr>
-          <td>Content</td>
-          <td>:</td>
-          <td><input type="text" name="content" value="<?php echo set_value('content') ?>"></td>
-        </tr>
-        <tr>
-          <label>Kategori</label>
-            <select name="id_kategori" class="form-control" required>
-              <option value="">Pilih Kategori</option>
-              <?php foreach($kategori as $kategori): ?>
-              <option value="<?php echo $kategori->id_kategori; ?>"><?php echo $kategori->kategori; ?></option>
-              <?php endforeach; ?>
-            </select>
-        </tr>
-        <tr>
-          <td>Penulis </td>
-          <td>:</td>
-          <td><input type="text" name="penulis" value="<?php echo set_value('penulis') ?>"></td>
-        </tr>
-        <tr>
-          <td>Sumber </td>
-          <td>:</td>
-          <td><input type="text" name="sumber" value="<?php echo set_value('sumber') ?>"></td>
-        </tr>
-        <tr>
-        <tr>
-          <td>Tanggal </td>
-          <td>:</td>
-          <td><input type="text" name="tanggal" value="<?php echo set_value('tanggal') ?>"></td>
-        </tr>
-        <tr>
-          <td>Gambar</td>
-          <td>:</td>
-          <td><input type="file" name="input_gambar" value="<?php echo set_value('input_gambar') ?>"></td>
-        </tr>
-        <tr>
-          <td colspan="3"><input type="submit" name="simpan" value="simpan"></td>
-        </tr>
-      </table>
+                <tbody>
+                  <?php
+                        foreach($kategori as $i):
+                  ?>
+                  <tr>
+                    <td><?php echo $i->id_kategori ?></td>
+                    <td><?php echo $i->kategori ?></td>
+                    <td><?php echo $i->deskripsi ?></td>
+                    <td><a href='kategori/edit/<?php echo $id_kategori;?>' class='btn btn-sm btn-info'>Update</a></td>
+                    <td><a href='kategori/delete/<?php echo $id_kategori;?>' class='btn btn-sm btn-info'>Delete</a></td>
+                  </tr>
+                  <?php endforeach;?>
+            </tbody>
+        </table>
     </div>
 
 </body>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<footer>
+        <div class="col-md-12">
+            <ul class="footer-nav">
+              <li><a href="home">Home</a></li>
+              <li><a href="home">About</a></li>
+              <li><a href="blog">Blog</a></li>
+              <li><a href="kategori">Kategori</a></li> 
+            </ul>
+          </div>
  <div class="col-md-8 col-md-pull-4">
             <div class="footer-copyright">
               <span>&copy; Copyright 2018. All Rights Reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></span>
@@ -163,9 +158,7 @@
 
 
     <!-- jQuery Plugins -->
-    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../assets/js/main.js"></script>
-
-  </body>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
 </html>

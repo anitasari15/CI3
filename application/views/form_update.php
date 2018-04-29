@@ -107,6 +107,7 @@
 
       <div class="container">
       <?php foreach ($single as $key): ?>
+      <?php echo validation_errors(); ?>
       <?php echo form_open('blog/edit/'.$key->id_blog, array('enctype'=>'multipart/form-data')); ?>
       <table>
         <tr>
@@ -120,15 +121,24 @@
           <td><input type="text" name="judul" value="<?php echo $key->judul; ?>"></td>
         </tr>
         <tr>
+          <label>Kategori</label>
+            <select name="id_kategori" class="form-control" required>
+              <option value="">Pilih Kategori</option>
+              <?php foreach($kategori as $kategori): ?>
+              <option value="<?php echo $kategori->id_kategori; ?>"><?php echo $kategori->kategori; ?></option>
+              <?php endforeach; ?>
+            </select>
+        </tr>
+        <tr>
           <td>KONTEN</td>
           <td>:</td>
           <td><input type="text" name="content" value="<?php echo $key->content; ?>"></td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>KATEGORI </td>
           <td>:</td>
-          <td><input type="text" name="kategori" value="<?php echo $key->kategori; ?>"></td>
-        </tr>
+          <td><input type="text" name="kategori" value="<?php echo $key->id_kategori; ?>"></td>
+        </tr> -->
         <tr>
           <td>PENULIS </td>
           <td>:</td>
@@ -140,11 +150,6 @@
           <td><input type="text" name="sumber" value="<?php echo $key->sumber; ?>"></td>
         </tr>
         <tr>
-        <!-- <tr>
-          <td>Tanggal </td>
-          <td>:</td>
-          <td><input type="text" name="input_tanggal" value=""></td>
-        </tr> -->
         <tr>
           <td>Gambar</td>
           <td>:</td>

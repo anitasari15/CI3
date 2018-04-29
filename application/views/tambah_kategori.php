@@ -87,63 +87,57 @@
       </div>
 
     </div>
-
+<br></br>
+<br></br>
+<br></br>
+<br></br>
   <div class="container">
+    <h1 class="black-text">FORM TAMBAH KATEGORI</h1>
+    <br></br>
     <?php echo validation_errors(); ?>
-      <?php
-        echo form_open('blog/tambah', array('enctype'=>'multipart/form-data')); 
-       ?>
-      <table>
+    <?php echo form_open('kategori/create', array('enctype'=>'multipart/form-data') ); ?>
+  <table>
         <tr>
-          <td>Judul</td>
+          <td>Kategori</td>
           <td>:</td>
-          <td><input type="text" name="judul" value="<?php echo set_value('judul'); ?>"></td>
+          <td><input type="text" name="kategori" value="<?php echo set_value('kategori'); ?>"></td>
         </tr>
         <tr>
-          <td>Content</td>
+          <td>Deskripsi</td>
           <td>:</td>
-          <td><input type="text" name="content" value="<?php echo set_value('content') ?>"></td>
-        </tr>
-        <tr>
-          <label>Kategori</label>
-            <select name="id_kategori" class="form-control" required>
-              <option value="">Pilih Kategori</option>
-              <?php foreach($kategori as $kategori): ?>
-              <option value="<?php echo $kategori->id_kategori; ?>"><?php echo $kategori->kategori; ?></option>
-              <?php endforeach; ?>
-            </select>
-        </tr>
-        <tr>
-          <td>Penulis </td>
-          <td>:</td>
-          <td><input type="text" name="penulis" value="<?php echo set_value('penulis') ?>"></td>
-        </tr>
-        <tr>
-          <td>Sumber </td>
-          <td>:</td>
-          <td><input type="text" name="sumber" value="<?php echo set_value('sumber') ?>"></td>
-        </tr>
-        <tr>
-        <tr>
-          <td>Tanggal </td>
-          <td>:</td>
-          <td><input type="text" name="tanggal" value="<?php echo set_value('tanggal') ?>"></td>
-        </tr>
-        <tr>
-          <td>Gambar</td>
-          <td>:</td>
-          <td><input type="file" name="input_gambar" value="<?php echo set_value('input_gambar') ?>"></td>
+          <td><input type="text" name="deskripsi" value="<?php echo set_value('deskripsi') ?>"></td>
         </tr>
         <tr>
           <td colspan="3"><input type="submit" name="simpan" value="simpan"></td>
         </tr>
-      </table>
-    </div>
-
+  </table>
+  </div>
+ 
 </body>
- <div class="col-md-8 col-md-pull-4">
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+</body>
+
+<footer>
+
+  <div class="col-md-12">
+            <ul class="footer-nav">
+              <li><a href="home">Home</a></li>
+              <li><a href="home">About</a></li>
+              <li><a href="../blog">Blog</a></li>
+              <li><a href="../kategori">Kategori</a></li> 
+            </ul>
+          </div>
+
+ <div class="col-md-12 col-md-pull-4">
             <div class="footer-copyright">
-              <span>&copy; Copyright 2018. All Rights Reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></span>
+              <span>&copy; Copyright 2018. All Rights Reserved.<i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></span>
             </div>
           </div>
           <!-- /copyright -->
@@ -154,7 +148,7 @@
       </div>
       <!-- /container -->
 
-    </footer>
+</footer>
     <!-- /Footer -->
 
     <!-- preloader -->
@@ -167,5 +161,5 @@
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../assets/js/main.js"></script>
 
-  </body>
+  
 </html>

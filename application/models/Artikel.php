@@ -6,18 +6,21 @@ class Artikel extends CI_Model {
 	public function get_artikels(){
 		$query = $this->db->get('blog');
 		return $query->result();
-	}	
+	}
+	
 
 	public function get_single($id)
 	{
 		$query = $this->db->query('select * from blog where id_blog='.$id);
 		return $query->result();
+
+		$this->db->select('*');
+		$this->db->from('blog');
+		$this->db->join('kategori', 'blog.id_kategori = kategori.id_kategori');
+		$this->db->where('blog.id_blog='.$id);
+		return $this->db->get()->result();
+		
 	}
-
-	// function input_data($data,$table){
-	// 	$this->db->insert($table,$data);
-	// }
-
 	//model form upload
 
 	public function upload()
@@ -46,11 +49,12 @@ class Artikel extends CI_Model {
 			'id_blog' => '',
 			'judul' => $this->input->post('judul'),
 			'content' => $this->input->post('content'),
-			'kategori' => $this->input->post('kategori'),
+			// 'kategori' => $this->input->post('kategori'),
 			'penulis' => $this->input->post('penulis'),
 			'sumber' => $this->input->post('sumber'),
 			'tanggal_post' => $this->input->post('tanggal'),
-			'image' => $upload['file']['file_name']
+			'image' => $upload['file']['file_name'],
+			'id_kategori' => $this->input->post('id_kategori')
 		);
 
 		$this->db->insert('blog', $data);
@@ -66,12 +70,18 @@ class Artikel extends CI_Model {
 		if($upload['result']=='success'){
 			$data = array('judul' => $this->input->post('judul'),
 							'content' => $this->input->post('content'),
+							'penulis' => $this->input->post('penulis'),
+							'sumber' => $this->input->post('sumber'),
+							'id_kategori' => $this->input->post('id_kategori'),
 							'image' => $upload['file']['file_name']
 			);
 		} else {
 			$data = array(
 				'judul' => $this->input->post('judul'),
 				'content' => $this->input->post('content'),
+				'penulis' => $this->input->post('penulis'),
+				'sumber' => $this->input->post('sumber'),
+				'id_kategori' => $this->input->post('id_kategori'),
 			);
 		} 
 		$this->db->where('id_blog',$id);

@@ -117,7 +117,7 @@
         <table>
           <tr class="text-center">
             <td>
-              <h3><b><?php echo $key->judul; ?></b><h3>
+              <h3><b><?php echo $key->judul; ?></b></h3>
               </td>
           </tr>
           <tr>
@@ -126,11 +126,19 @@
               <br></br>
               <br></br>
               <br></br>
-              <?php echo $key->tanggal; ?>
+              <?php echo $key->tanggal_post; ?>
               <br></br>
               <br></br>
               <br></br>
 
+            </td>
+          </tr>
+          <br></br>
+          <tr>
+            <td class="text-center">
+              <!-- <td>ID KATEGORI : </td>
+              <br></br> -->
+              <p>ID KATEGORI : <?php echo $key->id_kategori; ?></p>
             </td>
           </tr>
           <tr>
@@ -143,7 +151,7 @@
       <?php endforeach ?>
     </div>
        
-    <!-- Footer -->
+    <!-- Footer
     <footer id="footer" class="section">
 
       <!-- container -->
@@ -167,6 +175,8 @@
             <ul class="footer-nav">
               <li><a href="../../home">Home</a></li>
               <li><a href="../../about">About</a></li>
+              <li><a href="../../blog">Blog</a></li>
+              <li><a href="kategori">Kategori</a></li> 
             </ul>
           </div>
           <!-- /footer nav -->

@@ -105,6 +105,9 @@
             <div class="feature">
               <!-- <i class="feature-icon fa fa-users"></i> -->
     <div class="container text-center">
+
+      <h1>ARTIKEL</h1>
+      <br></br>
       <?php foreach ($artikel as $key): ?>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <table style="margin-bottom: 30px;">
@@ -140,21 +143,20 @@
         <div class="row">
 
           <!-- footer logo -->
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <div class="footer-logo">
               <a class="logo" href="#home">
                 <img src="assets/img/sklh.jpeg" alt="logo">
               </a>
             </div>
-          </div>
+          </div> -->
           <!-- footer logo -->
 
           <!-- footer nav -->
-          <div class="col-md-6">
+          <div class="col-md-12">
             <ul class="footer-nav">
-              <li><a href="home">Home</a></li>
-              <li><a href="home">About</a></li>
-              <li><a href="blog/tambah">Tambah</a></li>
+              <li><a href="blog/tambah">Tambah Artikel</a></li>
+              <li><a href="kategori">Kategori</a></li> 
             </ul>
           </div>
           <!-- /footer nav -->
@@ -168,12 +170,6 @@
           <!-- social -->
           <div class="col-md-4 col-md-push-8">
             <ul class="footer-social">
-<!--               <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li> -->
             </ul>
           </div>
           <!-- /social -->
