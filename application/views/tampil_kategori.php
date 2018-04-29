@@ -110,11 +110,12 @@
                     <td><?php echo $i->id_kategori ?></td>
                     <td><?php echo $i->kategori ?></td>
                     <td><?php echo $i->deskripsi ?></td>
-                    <td><a href='kategori/edit/<?php echo $id_kategori;?>' class='btn btn-sm btn-info'>Update</a></td>
-                    <td><a href='kategori/delete/<?php echo $id_kategori;?>' class='btn btn-sm btn-info'>Delete</a></td>
+                    <td>
+                      <a href="kategori/edit/<?php echo $i->id_kategori ?>" class="btn btn-primary">Update</a>
+                      <a href="kategori/delete/<?php echo $i->id_kategori ?>" class="btn btn-danger">Delete</a></td>
                   </tr>
-                  <?php endforeach;?>
             </tbody>
+            <?php endforeach;?>
         </table>
     </div>
 
