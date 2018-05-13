@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,9 +54,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
           <div class="container">
           <ul class="main-menu nav navbar-nav navbar-right">
-            <li><a href="home">Home</a></li>
-            <li><a href="home">About</a></li>
-            <li><a href="blog">Blog</a></li>
+            <li><a href="<?php echo base_url() ?>home">Home</a></li>
+            <li><a href="<?php echo base_url() ?>home">About</a></li>
+            <li><a href="<?php echo base_url() ?>blog">Blog</a></li>
             <!-- <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li> -->
           </ul>
@@ -72,7 +72,7 @@
     <div id="home" class="hero-area">
 
       <!-- Backgound Image -->
-      <div class="bg-image bg-parallax overlay" style="background-image:url(assets/img/bg.png)"></div>
+      <div class="bg-image bg-parallax overlay" style="background-image:url(<?php echo base_url() ?>assets/img/bg.png)"></div>
       <!-- /Backgound Image -->
 
       <div class="home-wrapper">
@@ -90,20 +90,7 @@
     <!-- /Home -->
 
     <!-- About -->
-    <div class="section">
 
-      <!-- container -->
-      <div class="container">
-
-        <!-- row -->
-        <div class="row">
-
-          
-            <!-- /feature -->
-
-            <!-- feature -->
-            <div class="feature">
-              <!-- <i class="feature-icon fa fa-users"></i> -->
     <div class="container text-center">
 
       <h1>ARTIKEL</h1>
@@ -113,24 +100,32 @@
           <table style="margin-bottom: 30px;">
             <tr>
               <td>
-                <a href="blog/detail/<?php echo $key->id_blog ?>" style="color: black;">
-                  <img src="img/<?php echo $key->image;?>" alt="Image" width="500" height="400">
+                <a href="<?php echo base_url() ?>blog/detail/<?php echo $key->id_blog ?>" style="color: black;">
+                  <img src="<?php echo base_url() ?>img/<?php echo $key->image;?>" alt="Image" width="500" height="400">
                   <br>
                   <?php echo $key->judul ?>
                 </a>
                 <br></br>
                 <!-- <button>Edit</button> -->
                 <!-- <button>Delete</button> -->
-                <a href='blog/delete/<?php echo $key->id_blog ?>' class='btn btn-sm btn-danger'>Hapus</a>
-                <a href='blog/edit/<?php echo $key->id_blog ?>' class='btn btn-sm btn-info'>Update</a>
+                <a href='<?php echo base_url() ?>blog/delete/<?php echo $key->id_blog ?>' class='btn btn-sm btn-danger'>Hapus</a>
+                <a href='<?php echo base_url() ?>blog/edit/<?php echo $key->id_blog ?>' class='btn btn-sm btn-info'>Update</a>
               </td>
             </tr>
           </table>
         </div>
       <?php endforeach ?>
     </div>
-
-    <!-- form untuk menambahkan data -->
+    
+<div class="text-center">
+<?php
+ // $links ini berasal dari fungsi pagination
+ // Jika $links ada (data melebihi jumlah max per page), maka tampilkan
+ if (isset($links)) {
+ echo $links;
+ }
+ ?>
+</div>
     
        
     <!-- Footer -->
@@ -142,21 +137,11 @@
         <!-- row -->
         <div class="row">
 
-          <!-- footer logo -->
-          <!-- <div class="col-md-6">
-            <div class="footer-logo">
-              <a class="logo" href="#home">
-                <img src="assets/img/sklh.jpeg" alt="logo">
-              </a>
-            </div>
-          </div> -->
-          <!-- footer logo -->
-
           <!-- footer nav -->
           <div class="col-md-12">
             <ul class="footer-nav">
-              <li><a href="blog/tambah">Tambah Artikel</a></li>
-              <li><a href="kategori">Kategori</a></li> 
+              <li><a href="<?php echo base_url() ?>blog/tambah">Tambah Artikel</a></li>
+              <li><a href="<?php echo base_url() ?>kategori">Kategori</a></li> 
             </ul>
           </div>
           <!-- /footer nav -->
@@ -197,9 +182,25 @@
 
 
     <!-- jQuery Plugins -->
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/main.js"></script>
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/assets/css/bootstrap.min.css">
+        <!-- Style tambahan
+        Note: Jika menginginkan style CSS tambahan, gunakan file custom.css sehingga file CSS asli milik Bootstrap tetap orisinil. Tujuannya, agar nantinya jika ada update baru dari Bootstrap dan ingin kita implementasikan, maka custom style kita tidak tertimpa.
+        -->
+        <!-- <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/theme.min.css"> -->
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/assets/css/custom.css">
+
+        <script src="<?php echo base_url() ?>assets/assets/js/jquery-1.9.1.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="<?php echo base_url() ?>assets/assets/js/holder.min.js"></script>
+
+    <!-- Custom -->
+    <script src="<?php echo base_url() ?>assets/assets/js/custom.js"></script>
 
   </body>
 </html>

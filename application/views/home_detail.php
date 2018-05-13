@@ -8,17 +8,14 @@
 
     <title>HTML Education Template</title>
 
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="../../assets/css/bootstrap.min.css"/>
+     <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.min.css"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="../../assets/css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +35,7 @@
           <!-- Logo -->
           <div class="navbar-brand">
             <a class="logo" href="home">
-              <img src="../../assets/img/sklh.jpeg" alt="logo">
+              <img src="<?php echo base_url() ?>assets/img/sklh.jpeg" alt="logo">
             </a>
           </div>
           <!-- /Logo -->
@@ -54,9 +51,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
           <div class="container">
           <ul class="main-menu nav navbar-nav navbar-right">
-            <li><a href="../../home">Home</a></li>
-            <li><a href="../../home">About</a></li>
-            <li><a href="../../blog">Blog</a></li>
+            <li><a href="<?php echo base_url() ?>home">Home</a></li>
+            <li><a href="<?php echo base_url() ?>home">About</a></li>
+            <li><a href="<?php echo base_url() ?>blog">Blog</a></li>
             <!-- <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li> -->
           </ul>
@@ -72,7 +69,7 @@
     <div id="home" class="hero-area">
 
       <!-- Backgound Image -->
-      <div class="bg-image bg-parallax overlay" style="background-image:url(../../assets/img/bg.png)"></div>
+      <div class="bg-image bg-parallax overlay" style="background-image:url(<?php echo base_url() ?>assets/img/bg.png)"></div>
       <!-- /Backgound Image -->
 
       <div class="home-wrapper">
@@ -122,7 +119,7 @@
           </tr>
           <tr>
             <td class="text-center">
-              <img src="../../img/<?php echo $key->image;?>" alt="Image" width="500" height="400">
+              <img src="<?php echo base_url() ?>img/<?php echo $key->image;?>" alt="Image" width="500" height="400">
               <br></br>
               <br></br>
               <br></br>
@@ -164,7 +161,7 @@
           <div class="col-md-6">
             <div class="footer-logo">
               <a class="logo" href="#home">
-                <img src="../../assets/img/sklh.jpeg" alt="logo">
+                <img src="<?php echo base_url() ?>assets/img/sklh.jpeg" alt="logo">
               </a>
             </div>
           </div>
@@ -173,10 +170,10 @@
           <!-- footer nav -->
           <div class="col-md-6">
             <ul class="footer-nav">
-              <li><a href="../../home">Home</a></li>
-              <li><a href="../../about">About</a></li>
-              <li><a href="../../blog">Blog</a></li>
-              <li><a href="kategori">Kategori</a></li> 
+              <li><a href="<?php echo base_url() ?>home">Home</a></li>
+              <li><a href="<?php echo base_url() ?>about">About</a></li>
+              <li><a href="<?php echo base_url() ?>blog">Blog</a></li>
+              <li><a href="<?php echo base_url() ?>kategori">Kategori</a></li> 
             </ul>
           </div>
           <!-- /footer nav -->
@@ -190,12 +187,7 @@
           <!-- social -->
           <div class="col-md-4 col-md-push-8">
             <ul class="footer-social">
-<!--               <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li> -->
+
             </ul>
           </div>
           <!-- /social -->
@@ -223,9 +215,25 @@
 
 
     <!-- jQuery Plugins -->
-    <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="../../assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../assets/js/main.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/main.js"></script>
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/assets/css/bootstrap.min.css">
+        <!-- Style tambahan
+        Note: Jika menginginkan style CSS tambahan, gunakan file custom.css sehingga file CSS asli milik Bootstrap tetap orisinil. Tujuannya, agar nantinya jika ada update baru dari Bootstrap dan ingin kita implementasikan, maka custom style kita tidak tertimpa.
+        -->
+        <!-- <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/theme.min.css"> -->
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/assets/css/custom.css">
+
+        <script src="<?php echo base_url() ?>assets/assets/js/jquery-1.9.1.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="<?php echo base_url() ?>assets/assets/js/holder.min.js"></script>
+
+    <!-- Custom -->
+    <script src="<?php echo base_url() ?>assets/assets/js/custom.js"></script>
 
   </body>
 </html>

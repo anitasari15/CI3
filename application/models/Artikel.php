@@ -3,9 +3,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Artikel extends CI_Model {
 
-	public function get_artikels(){
+	public function get_artikels($limit = FALSE, $offset = FALSE){
+
+		if ( $limit ) {
+ 			$this->db->limit($limit, $offset);
+ 		}
+
+ 		// $this->db->order_by('blog.id_blog', 'DESC');
+ 		// Inner Join dengan table Categories
+ 		// $this->db->join('kategori', 'kategori.id_kategori = blog.id_blog');
+
 		$query = $this->db->get('blog');
 		return $query->result();
+	}
+
+	public function get_total(){
+		return $this->db->count_all("blog");
 	}
 	
 
