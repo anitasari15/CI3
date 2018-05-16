@@ -8,6 +8,16 @@
 
     <title>HTML Education Template</title>
 
+
+    <!-- Bootstrap core CSS -->
+    <link href="<?php echo base_url() ?>assets/css/bootstrap.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/style-responsive.css" rel="stylesheet">
+
+    <script src="<?php echo base_url() ?>assets/assets/js/jquery-1.9.1.min.js"></script>
+
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 
@@ -17,15 +27,12 @@
     <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/font-awesome.min.css">
 
-    <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css"/>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/assets/css/jquery.dataTables.min.css">
+<script src="<?php echo base_url(). 'assets/assets/js/jquery.dataTables.min.js'?>"></script>
+<script src="<?php echo base_url(). 'assets/assets/js/jquery.dataTables.bootstrap4.min.js'?>"></script>
+   
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 
     </head>
   <body>
@@ -95,7 +102,7 @@
 <td><a href='<?php echo base_url() ?>kategori/create' class='btn btn-sm btn-info'>Tambah</a></td>
 
         <div class="card-content table-responsive">
-            <table class="table">
+            <table id="dt-basic" class="table">
                 <thead class="text-primary">
                     <th>Id Kategori</th>
                     <th>Kategori</th>
@@ -112,71 +119,27 @@
                     <td><?php echo $i->kategori ?></td>
                     <td><?php echo $i->deskripsi ?></td>
                     <td>
-                      <a href="kategori/edit/<?php echo $i->id_kategori ?>" class="btn btn-primary">Update</a>
-                      <a href="kategori/delete/<?php echo $i->id_kategori ?>" class="btn btn-danger">Delete</a></td>
+                      <a href="<?php echo base_url() ?>kategori/edit/<?php echo $i->id_kategori ?>" class="btn btn-primary">Update</a>
+                      <a href="<?php echo base_url() ?>kategori/delete/<?php echo $i->id_kategori ?>" class="btn btn-danger">Delete</a></td>
                   </tr>
             </tbody>
             <?php endforeach;?>
         </table>
     </div>
 
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<footer>
-        <div class="col-md-12">
-            <ul class="footer-nav">
-              <li><a href="<?php echo base_url() ?>home">Home</a></li>
-              <li><a href="<?php echo base_url() ?>home">About</a></li>
-              <li><a href="<?php echo base_url() ?>blog">Blog</a></li>
-              <li><a href="<?php echo base_url() ?>kategori">Kategori</a></li> 
-            </ul>
-          </div>
- <div class="col-md-8 col-md-pull-4">
-            <div class="footer-copyright">
-              <span>&copy; Copyright 2018. All Rights Reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></span>
-            </div>
-          </div>
-          <!-- /copyright -->
 
-        </div>
-        <!-- row -->
+<script >
+         $(document).ready(function(){
 
-      </div>
-      <!-- /container -->
+        // Contoh inisialisasi Datatable tanpa konfigurasi apapun
+        // #dt-basic adalah id html dari tabel yang diinisialisasi
+        $('#dt-basic').DataTable();
+    });
+</script>
 
-    </footer>
-    <!-- /Footer -->
+    <!-- js placed at the end of the document so the pages load faster -->
+  <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/assets/css/bootstrap.min.css">
 
-    <!-- preloader -->
-    <div id='preloader'><div class='preloader'></div></div>
-    <!-- /preloader -->
-
-
-    <!-- jQuery Plugins -->
-    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url() ?>assets/js/main.js"></script>
-
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/assets/css/bootstrap.min.css">
-        <!-- Style tambahan
-        Note: Jika menginginkan style CSS tambahan, gunakan file custom.css sehingga file CSS asli milik Bootstrap tetap orisinil. Tujuannya, agar nantinya jika ada update baru dari Bootstrap dan ingin kita implementasikan, maka custom style kita tidak tertimpa.
-        -->
-        <!-- <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/theme.min.css"> -->
-        <link rel="stylesheet" href="<?php echo base_url() ?>assets/assets/css/custom.css">
-
-        <script src="<?php echo base_url() ?>assets/assets/js/jquery-1.9.1.min.js"></script>
-        <script src="<?php echo base_url() ?>assets/assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="<?php echo base_url() ?>assets/assets/js/holder.min.js"></script>
-
-    <!-- Custom -->
-    <script src="<?php echo base_url() ?>assets/assets/js/custom.js"></script>
-  </body>
+</body>
 </html>
