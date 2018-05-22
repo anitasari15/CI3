@@ -76,14 +76,11 @@ class Blog extends CI_Controller {
 			}else{
 				$data['message'] = $upload['error'];
 			}
-
 		}
 
 		$this->load->view('form_tambah', $data);
 			
-		}
-
-		
+		}		
 	}
 
 	public function delete($id){
