@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+<?php if (!$this->session->userdata('logged_in')) {
+  redirect('user/login');
+} ?>
+
+<?php $this->load->view("template/header"); ?>
 
 <div class="container">
       <?php foreach ($single as $key): ?>
@@ -30,6 +29,5 @@
       </table>
       <?php endforeach ?>
     </div>
-
-</body>
-</html>
+    
+<?php $this->load->view("template/footer"); ?>

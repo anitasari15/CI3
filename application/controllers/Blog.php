@@ -37,14 +37,20 @@ class Blog extends CI_Controller {
 		 // Buat link pagination
  		$data['links'] = $this->pagination->create_links();
 		}
+		
+		// Passing data ke view
 		$this->load->view('home_view', $data);
+		
 	}
 
 	public function detail($id)
 	{
 		$this->load->model('artikel');
 		$data['detail'] = $this->artikel->get_single($id);
+		
+		// Passing data ke view
 		$this->load->view('home_detail', $data);
+		
 	}
 
 	//gungsi untuk insert database
@@ -63,7 +69,10 @@ class Blog extends CI_Controller {
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'required', array('required' => 'Isi %s , '));
 
 		if ($this->form_validation->run()==FALSE){
-			$this->load->view('form_tambah', $data);
+			
+		// Passing data ke view
+		$this->load->view('form_tambah', $data);
+		
 		}
 		else
 		{
@@ -77,9 +86,8 @@ class Blog extends CI_Controller {
 				$data['message'] = $upload['error'];
 			}
 		}
-
-		$this->load->view('form_tambah', $data);
-			
+		// Passing data ke view
+		$this->load->view('form_tambah', $data);			
 		}		
 	}
 
@@ -100,9 +108,8 @@ class Blog extends CI_Controller {
 			$this->artikel->update($upload,$id);
 			redirect('blog');
 		}
-		
-
-		$this->load->view('form_update',$data);
+		// Passing data ke view
+		$this->load->view('form_update', $data);
 	}
 
 }

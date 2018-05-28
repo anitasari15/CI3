@@ -20,6 +20,8 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
+		
+		// Passing data ke view
 		$this->load->view('home');
 	}
 }
