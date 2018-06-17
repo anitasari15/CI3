@@ -48,6 +48,17 @@
 	<input type="password" class="form-control" name="password2" placeholder="Ulangi Password">
 	</div>
 </div>
+<div class="form-group">
+	<label for="">Pilih Paket Membership</label>
+	    <div class="form-check">
+	        <input class="form-check-input" type="radio" name="member" id="1" value="1" checked>
+		        <label class="form-check-label" for="silver">Silver Member</label>
+		</div>
+	<div class="form-check">
+		<input class="form-check-input" type="radio" name="member" id="2" value="2">
+	    	<label class="form-check-label" for="gold">Gold Member</label>
+	</div>
+</div>
 <br>
 <br>
 <br>
