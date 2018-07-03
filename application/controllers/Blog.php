@@ -7,6 +7,10 @@ class Blog extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('model_kategori');
+		// if($this->session->userdata('level') == null){
+		// 	$this->session->set_flashdata('include_login','Please Login');
+		// 	redirect('user','refresh');
+		// }
 	}
 
 	public function index()
@@ -56,9 +60,15 @@ class Blog extends CI_Controller {
 	//gungsi untuk insert database
 	public function tambah()
 	{
+		// if($this->session->userdata('id_level') == 3){
+		// 	$this->session->set_flashdata('msg_level','Member silver tidak dapat melakukan tambah artikel');
+		// 	redirect('blog','refresh');
+		// }
+
 		$this->load->model('artikel');
 		$data = array();
 		$data['kategori'] = $this->model_kategori->get_all_categories();
+		
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('judul', 'Judul', 'required', array('required' => 'Isi %s , '));
